@@ -5,12 +5,12 @@
 </section>
 <section class="sort">
 	<label for="">Order By :</label>
-	<select name="" id="">
+	<select>
 		<option value=""></option>
 		<option value=""></option>
 	</select>
 	<label for="">Descending ? :</label>
-	<input type="checkbox" name="" id="">
+	<input type="checkbox">
 </section>
 <section class="edit">
 	<label for="">Bug Name :</label>
@@ -20,7 +20,7 @@
 <section class="list">
 	<ol>
 		<li  *ngFor="let bug of bugs">
-			<span class="bugname">{{bug}}</span>
+			<span class="bugname">{{bug | json}}</span>
 			<div class="datetime">[Created At]</div>
 		</li>
 		<!-- <li>
