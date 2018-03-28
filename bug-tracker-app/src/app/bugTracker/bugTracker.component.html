@@ -1,8 +1,4 @@
-<section class="stats">
-	<span class="closed">{{getClosedCount()}}</span>
-	<span> / </span>
-	<span>{{bugs.length}}</span>
-</section>
+<app-bug-stats [data]="bugs"></app-bug-stats>
 <section class="sort">
 	<label for="">Order By :</label>
 	<select (change)="sortBugBy=$event.target.value">
@@ -27,7 +23,7 @@
 				[ngClass]="{closed : bug.isClosed}"
 			>{{bug.name | trimText:trimLength}}</span>
 
-			<div class="datetime">[Created At]</div>
+			<div class="datetime">[{{bug.createdAt}}]</div>
 		</li>
 		<!-- <li>
 			<span class="bugname closed">[This is bug - 2]</span>
