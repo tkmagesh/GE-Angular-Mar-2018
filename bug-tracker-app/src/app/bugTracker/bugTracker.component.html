@@ -23,7 +23,7 @@
 				[ngClass]="{closed : bug.isClosed}"
 			>{{bug.name | trimText:trimLength}}</span>
 
-			<div class="datetime">[{{bug.createdAt}}]</div>
+			<div class="datetime">[{{bug.createdAt | elapsed}}]</div>
 		</li>
 		<!-- <li>
 			<span class="bugname closed">[This is bug - 2]</span>
