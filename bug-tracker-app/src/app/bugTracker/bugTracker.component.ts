@@ -10,16 +10,20 @@ import { BugStorageService } from './services/bugStorage.service';
 export class BugTrackerComponent{
 	bugs : Bug[] = [];
 
+	newBugName : string = '';
+
 	constructor(private bugStorage : BugStorageService){
 		this.bugs = this.bugStorage.getAll();
 	}
 
-	onCreateNewClick(bugName : string){
-		let newBug : Bug = this.bugStorage.addNew(bugName);
-		this.bugs.push(newBug);
+	onCreateNewClick(){
+		let newBug : Bug = this.bugStorage.addNew(this.newBugName);
+		this.bugs = [...this.bugs, newBug];
+		this.newBugName = '';
 	}
-	onBugNameClick(bug : Bug){
-		this.bugStorage.toggle(bug);
+	onBugNameClick(bugToToggle : Bug){
+		let toggledBug = this.bugStorage.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug =>  bug.id === bugToToggle.id ? toggledBug : bug);
 	}
 	onRemoveClosedClick(){
 		for(let index = this.bugs.length-1; index >=0; index--){
