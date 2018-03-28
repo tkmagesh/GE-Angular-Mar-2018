@@ -12,11 +12,10 @@ export class BugTrackerComponent implements OnInit{
 	sortBugBy : string = 'name';
 
 	constructor(private bugStorage : BugStorageService){
-		console.log('constructor - ', new Date());
+		
 	}
 
 	ngOnInit(){
-		console.log('ngOnInit - ', new Date());
 		this.bugs = this.bugStorage.getAll();
 	}
 
