@@ -10,16 +10,12 @@ import { BugStorageService } from './services/bugStorage.service';
 export class BugTrackerComponent{
 	bugs : Bug[] = [];
 
-	newBugName : string = '';
-
 	constructor(private bugStorage : BugStorageService){
 		this.bugs = this.bugStorage.getAll();
 	}
 
-	onCreateNewClick(){
-		let newBug : Bug = this.bugStorage.addNew(this.newBugName);
+	onNewBugCreated(newBug : Bug){
 		this.bugs = [...this.bugs, newBug];
-		this.newBugName = '';
 	}
 	onBugNameClick(bugToToggle : Bug){
 		let toggledBug = this.bugStorage.toggle(bugToToggle);
