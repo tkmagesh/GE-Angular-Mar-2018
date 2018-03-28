@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugServerService } from './services/bugServer.service';
 
-
 @Component({
 	selector : 'app-bug-tracker',
 	templateUrl : 'bugTracker.component.html'
